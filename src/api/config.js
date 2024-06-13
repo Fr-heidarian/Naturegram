@@ -1,2 +1,2 @@
-const BASE_URL = "http://localhost:4000";
-const POSTS = "posts";
+export const BASE_URL = "http://localhost:4003";
+export const POSTS_URL = "posts";
