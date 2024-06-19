@@ -7,6 +7,8 @@ export default function HomePage() {
     queryFn: readPosts,
   });
 
+  console.log(data);
+
   if (isPending) {
     return <div>Loading...</div>;
   }
@@ -14,5 +16,5 @@ export default function HomePage() {
   if (isError) {
     return <div>Error</div>;
   }
-  return <div>Home Page</div>;
+  return <div>HomePage</div>;
 }
