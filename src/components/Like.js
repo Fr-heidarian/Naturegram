@@ -11,11 +11,11 @@ export default function Like(props) {
   };
 
   return (
-    <div>
-      {likes}
+    <div className="flex justify-content-center items-center">
+      <span className="text-sm">{likes}</span>
       <span
         onClick={handleClick}
-        className={`${liked ? "text-red-500" : ""} cursor-pointer`}
+        className={`${liked ? "text-red-500" : ""} cursor-pointer ml-2 text-xl`}
       >
         ♥️
       </span>

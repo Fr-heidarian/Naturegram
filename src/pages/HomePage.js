@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { readPosts } from "../api/postsApi";
-import PostCard from "../components/PostCard"
+import PostCard from "../components/PostCard";
 
 export default function HomePage() {
   const {
@@ -25,7 +25,7 @@ export default function HomePage() {
   return (
     <div className="container">
       {posts.map((post) => (
-        <PostCard post={post}/>
+        <PostCard post={post} />
       ))}
     </div>
   );

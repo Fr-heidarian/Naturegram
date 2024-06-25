@@ -2,7 +2,7 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    extend: { colors: { borderGray: "#d3d3d3", hoverColor: "#069874" } },
+    extend: { colors: { borderGray: "#d3d3d3", hoverColor: "#069874",hoverBorderColor:"#16c79a" } },
   },
   plugins: [],
 };
