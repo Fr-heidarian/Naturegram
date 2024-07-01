@@ -19,7 +19,7 @@ const router = createBrowserRouter([
       { index: true, element: <HomePage /> },
       { path: "/about", element: <AboutPage /> },
       { path: "/createNew", element: <CreateNewPage /> },
-      { path: "/post/:postId", element: <PostPage /> },
+      { path: "/posts/:postId", element: <PostPage /> },
     ],
   },
 ]);

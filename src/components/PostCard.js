@@ -10,12 +10,12 @@ export default function PostCard({ post }) {
     likes,
     isLiked,
     description,
-    id
+    id,
   } = post;
 
   return (
-    <Link to={`/posts/${id}`}>
-      <div className="flex flex-col w-2/5 bg-white rounded-xl mx-auto my-5 hover:border hover:border-hoverBorderColor">
+    <div className="flex flex-col w-2/5 bg-white rounded-xl mx-auto my-5 hover:border hover:border-hoverBorderColor">
+      <Link to={`/posts/${id}`}>
         <div className="p-2">
           <img
             src={profileImage}
@@ -24,13 +24,14 @@ export default function PostCard({ post }) {
           />
           <h2>{profileName}</h2>
         </div>
+
         <img src={imageUrl} alt="blog pic" />
-        <div className="flex justify-between p-2">
-          <h2 className="font-bold">{title}</h2>
-          <Like likes={likes} isLiked={isLiked} />
-        </div>
-        <p className="p-2 text-sm">{description.substring(0, 50)}</p>
+      </Link>
+      <div className="flex justify-between p-2">
+        <h2 className="font-bold">{title}</h2>
+        <Like likes={likes} isLiked={isLiked} />
       </div>
-    </Link>
+      <p className="p-2 text-sm">{description.substring(0, 50)}</p>
+    </div>
   );
 }
