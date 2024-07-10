@@ -6,7 +6,7 @@ export default function Header() {
   return (
     <div className="flex items-center justify-between border-b border-borderGray">
       <Link to="/" className="hover:bg-hoverColor hover:text-white p-4">
-        NatureGram
+        NATUREGRAM
       </Link>
       <input
         type="text"
@@ -19,7 +19,7 @@ export default function Header() {
           to="/createNew"
           className="mr-3 hover:bg-hoverColor hover:text-white p-4"
         >
-          createNew
+          Create New
         </Link>
         <Link to="/about" className="hover:bg-hoverColor hover:text-white p-4">
           About

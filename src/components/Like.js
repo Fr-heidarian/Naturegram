@@ -5,6 +5,7 @@ export default function Like(props) {
   const [likes, setLikes] = useState(props.likes);
 
   const handleClick = () => {
+    
     const newIsLiked = !liked;
     setLiked(newIsLiked);
     setLikes(newIsLiked ? likes + 1 : likes - 1);
