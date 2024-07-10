@@ -25,3 +25,17 @@ export const readPost = async (postId) => {
   }
 };
 
+export const createPost = async (newPost) => {
+  const response = await fetch(`${BASE_URL}/${POSTS_URL}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(newPost),
+  });
+  if (response.status === 201) {
+    const post = await response.json();
+
+    return post;
+  } else {
+    throw new Error(response.status);
+  }
+};

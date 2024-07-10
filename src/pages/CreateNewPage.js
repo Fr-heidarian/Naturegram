@@ -1,16 +1,16 @@
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
-
+import { createPost } from "../api/postsApi";
 
 export default function CreateNewPage() {
   const [author, setauthor] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [isLiked, setIsLiked] = useState(false);
-
+  
   const mutation = useMutation({
     mutationFn: (newPost) => {
-      
+      createPost(newPost);
     },
   });
 
