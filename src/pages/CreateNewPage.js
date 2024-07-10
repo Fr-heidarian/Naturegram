@@ -7,7 +7,7 @@ export default function CreateNewPage() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [isLiked, setIsLiked] = useState(false);
-  
+
   const mutation = useMutation({
     mutationFn: (newPost) => {
       createPost(newPost);
