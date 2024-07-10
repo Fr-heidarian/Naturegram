@@ -1,12 +1,30 @@
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 
+
 export default function CreateNewPage() {
   const [author, setauthor] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [isLiked, setIsLiked] = useState(false);
 
+  const mutation = useMutation({
+    mutationFn: (newPost) => {
+      
+    },
+  });
+
+  const handleCreateNew = (e) => {
+    e.preventDefault();
+
+    mutation.mutate({
+      profileName: author,
+      title,
+      description,
+      isLiked,
+      likes: Math.floor(Math.random() * 9991),
+    });
+  };
 
   return (
     <div className="flex items-center justify-center flex-col p-2">
@@ -51,6 +69,7 @@ export default function CreateNewPage() {
         </label>
         <div className="flex justify-center">
           <button
+            onClick={handleCreateNew}
             className="bg-buttonColor text-white p-3 m-2 rounded hover:bg-buttonHoverColor"
           >
             Create New

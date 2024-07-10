@@ -24,3 +24,4 @@ export const readPost = async (postId) => {
     throw new Error(response.status);
   }
 };
+
