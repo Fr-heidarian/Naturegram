@@ -8,7 +8,8 @@ export default function HomePage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get("title");
 
-  const page = 1;
+  const [page, setPage] = useState(1);
+
 
   const {
     isPending,
@@ -32,7 +33,10 @@ export default function HomePage() {
       {posts.map((post) => (
         <PostCard post={post} key={post.id} />
       ))}
-      <div className="flex justify-center items-center p-3 m-3 text-xl hover:cursor-pointer w-1/3 mx-auto">
+      <div
+        className="flex justify-center items-center p-3 m-3 text-xl hover:cursor-pointer w-2/5 mx-auto"
+        onMouseEnter={() => setPage((previousPage)=> previousPage + 1)}
+      >
         Hover To Load More...
       </div>
     </div>
