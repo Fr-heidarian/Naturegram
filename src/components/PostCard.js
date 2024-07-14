@@ -29,7 +29,7 @@ export default function PostCard({ post }) {
       </Link>
       <div className="flex justify-between p-2">
         <h2 className="font-bold">{title}</h2>
-        <Like likes={likes} isLiked={isLiked} />
+        <Like likes={likes} isLiked={isLiked} id={id}/>
       </div>
       <p className="p-2 text-sm">{description.substring(0, 50)}</p>
     </div>

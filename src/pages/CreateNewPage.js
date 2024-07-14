@@ -22,12 +22,20 @@ export default function CreateNewPage() {
       title,
       description,
       isLiked,
+      profileImage: "https://avatars.githubusercontent.com/u/52806815",
       likes: Math.floor(Math.random() * 9991),
     });
+    setauthor("");
+    setTitle("");
+    setDescription("");
+    setIsLiked(false);
   };
 
   return (
     <div className="flex items-center justify-center flex-col p-2">
+      {mutation.error && (
+        <span className="text-red-500">{mutation.error.message}</span>
+      )}
       <form className="w-2/5">
         <label>
           Author

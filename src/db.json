@@ -7,8 +7,8 @@
       "profileImage": "https://avatars.githubusercontent.com/u/51633191",
       "imageUrl": "https://loremflickr.com/640/480/nature?lock=1798318243971072",
       "description": "Cunae aestas voluptatum thorax cena.\nSequi tondeo acies ipsam viscus aeneus.\nVinculum summa derelinquo timor demulceo ubi beatus.\nCura crapula approbo ciminatio cui vociferor.\nBeatae cohibeo quaerat laborum depraedor dicta arx comprehendo iure coniecto.\nAdhuc vis sursum delectus cohors adinventitias.\nAntepono vester bibo alienus optio cometes tutis commodo stips aptus.\nCarcer arcesso surgo cito nesciunt subiungo carpo.\nModi veniam ocer casus auctor coepi incidunt comparo vilicus.\nAperte adstringo curto spargo aestus.",
-      "likes": 4576,
-      "isLiked": true,
+      "likes": 4575,
+      "isLiked": false,
       "profileName": "Dr. Katherine Goyette"
     },
     {
@@ -131,14 +131,6 @@
       "likes": 3410,
       "isLiked": false,
       "profileName": "Clint Langworth"
-    },
-    {
-      "profileName": "author1",
-      "title": "title1",
-      "description": "natureGram",
-      "isLiked": true,
-      "likes": 1696,
-      "id": "N8_L5H1"
     }
   ]
 }

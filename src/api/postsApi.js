@@ -33,7 +33,6 @@ export const createPost = async (newPost) => {
   });
   if (response.status === 201) {
     const post = await response.json();
-
     return post;
   } else {
     throw new Error(response.status);
