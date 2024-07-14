@@ -2,10 +2,13 @@ import { useQuery } from "@tanstack/react-query";
 import { readPosts } from "../api/postsApi";
 import PostCard from "../components/PostCard";
 import { useSearchParams } from "react-router-dom";
+import { useState } from "react";
 
 export default function HomePage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get("title");
+
+  const page = 1;
 
   const {
     isPending,
@@ -13,8 +16,8 @@ export default function HomePage() {
     data: posts,
     error,
   } = useQuery({
-    queryKey: ["posts", query],
-    queryFn: () => readPosts(query),
+    queryKey: ["posts", page, query],
+    queryFn: () => readPosts(page, query),
   });
 
   if (isPending) {
@@ -25,10 +28,13 @@ export default function HomePage() {
     return <div>Error</div>;
   }
   return (
-    <div className="container">
+    <div className="container mt-2">
       {posts.map((post) => (
         <PostCard post={post} key={post.id} />
       ))}
+      <div className="flex justify-center items-center p-3 m-3 text-xl hover:cursor-pointer w-1/3 mx-auto">
+        Hover To Load More...
+      </div>
     </div>
   );
 }

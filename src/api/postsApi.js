@@ -1,8 +1,10 @@
 import { BASE_URL, POSTS_URL } from "./config";
 
-export const readPosts = async (searchParams) => {
+export const readPosts = async (page = 1, searchParams) => {
   const response = await fetch(
-    `${BASE_URL}/${POSTS_URL}?title_like=${searchParams ?? ""}`
+    `${BASE_URL}/${POSTS_URL}?_page=${page}&_limit=5&title_like=${
+      searchParams ?? ""
+    }`
   );
   if (response.status === 200) {
     const posts = await response.json();
