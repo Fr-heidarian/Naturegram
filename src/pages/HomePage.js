@@ -2,14 +2,14 @@ import { useQuery } from "@tanstack/react-query";
 import { readPosts } from "../api/postsApi";
 import PostCard from "../components/PostCard";
 import { useSearchParams } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function HomePage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get("title");
 
   const [page, setPage] = useState(1);
-
+  const [loadIsFinished, setLoadIsFinished] = useState(false);
 
   const {
     isPending,
@@ -20,6 +20,12 @@ export default function HomePage() {
     queryKey: ["posts", page, query],
     queryFn: () => readPosts(page, query),
   });
+
+  useEffect(() => {
+    if (posts && posts.length < 5) {
+      setLoadIsFinished(true);
+    }
+  }, [posts]);
 
   if (isPending) {
     return <div>Loading...</div>;
@@ -35,7 +41,10 @@ export default function HomePage() {
       ))}
       <div
         className="flex justify-center items-center p-3 m-3 text-xl hover:cursor-pointer w-2/5 mx-auto"
-        onMouseEnter={() => setPage((previousPage)=> previousPage + 1)}
+        onMouseEnter={() => {
+          if (loadIsFinished) return;
+          setPage((previousPage) => previousPage + 1);
+        }}
       >
         Hover To Load More...
       </div>
