@@ -10,22 +10,21 @@ export default function HomePage() {
 
   const [page, setPage] = useState(1);
   const [loadIsFinished, setLoadIsFinished] = useState(false);
+  const [posts, setPosts] = useState([]);
 
-  const {
-    isPending,
-    isError,
-    data: posts,
-    error,
-  } = useQuery({
+  const { isPending, isError, data, error } = useQuery({
     queryKey: ["posts", page, query],
     queryFn: () => readPosts(page, query),
   });
 
   useEffect(() => {
-    if (posts && posts.length < 5) {
-      setLoadIsFinished(true);
+    if (data) {
+      setPosts([...posts, ...data]);
+      if (data.length < 5) {
+        setLoadIsFinished(true);
+      }
     }
-  }, [posts]);
+  }, [data]);
 
   if (isPending) {
     return <div>Loading...</div>;
@@ -46,7 +45,7 @@ export default function HomePage() {
           setPage((previousPage) => previousPage + 1);
         }}
       >
-        Hover To Load More...
+        {loadIsFinished ? "Nothing To Load" : "Hover To Load More..."}
       </div>
     </div>
   );
